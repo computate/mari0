@@ -1,9 +1,9 @@
 function intro_load()
 	gamestate = "intro"
 	
-	introduration = 2.5
-	blackafterintro = 0.3
-	introfadetime = 0.5
+	introduration = 1.0
+	blackafterintro = 0.0
+	introfadetime = 0.0
 	introprogress = -0.2 
 	
 	screenwidth = 400*scale
@@ -19,11 +19,11 @@ function intro_update(dt)
 			introprogress = introduration+blackafterintro
 		end
 		
-		if introprogress > 0.5 and playedwilhelm == nil then
-			playsound(stabsound)
-			
-			playedwilhelm = true
-		end
+--		if introprogress > 0.5 and playedwilhelm == nil then
+--			playsound(stabsound)
+--			
+--			playedwilhelm = true
+--		end
 		
 		if introprogress == introduration + blackafterintro then
 			menu_load()
@@ -48,17 +48,17 @@ function intro_draw()
 		
 		love.graphics.setColor(255, 255, 255, a)
 		
-		if introprogress > introfadetime+0.3 and introprogress < introduration - introfadetime then
-			local y = (introprogress-0.2-introfadetime) / (introduration-2*introfadetime) * 206 * 5
-			love.graphics.draw(logo, screenwidth/2, screenheight/2, 0, scale, scale, 142, 150)
-			love.graphics.setScissor(0, screenheight/2+150*scale - y, screenwidth, y)
-			love.graphics.draw(logoblood, screenwidth/2, screenheight/2, 0, scale, scale, 142, 150)
-			love.graphics.setScissor()
-		elseif introprogress >= introduration - introfadetime then
-			love.graphics.draw(logoblood, screenwidth/2, screenheight/2, 0, scale, scale, 142, 150)
-		else
-			love.graphics.draw(logo, screenwidth/2, screenheight/2, 0, scale, scale, 142, 150)
-		end
+--		if introprogress > introfadetime+0.3 and introprogress < introduration - introfadetime then
+--			local y = (introprogress-0.2-introfadetime) / (introduration-2*introfadetime) * 206 * 5
+--			love.graphics.draw(logo, screenwidth/2, screenheight/2, 0, scale, scale, 142, 150)
+--			love.graphics.setScissor(0, screenheight/2+150*scale - y, screenwidth, y)
+--			love.graphics.draw(logoblood, screenwidth/2, screenheight/2, 0, scale, scale, 142, 150)
+--			love.graphics.setScissor()
+--		elseif introprogress >= introduration - introfadetime then
+--			love.graphics.draw(logoblood, screenwidth/2, screenheight/2, 0, scale, scale, 142, 150)
+--		else
+--			love.graphics.draw(logo, screenwidth/2, screenheight/2, 0, scale, scale, 142, 150)
+--		end
 	end
 end
 
